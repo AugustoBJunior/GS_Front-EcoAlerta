@@ -6,16 +6,14 @@
     <title>SP Alerta - Monitoramento de Desastres</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Adicionando a API do Google Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&libraries=places&callback=initMap" async defer></script>
-    
 </head>
 <body>
     <!-- Barra de Navegação -->
     <nav id="navbar">
         <div class="container">
             <div class="logo">
-                <img src="logo eco alerta.jpg" alt="ecoalerta">
+                <img src="img/logos/logo eco alerta.jpg" alt="ecoalerta">
             </div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
@@ -33,6 +31,79 @@
         </div>
     </nav>
 
+    <!-- Seção Hero (Home) -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>SP Alerta - Monitoramento de Desastres</h1>
+                <p>Sistema inteligente de prevenção e resposta a desastres naturais na região metropolitana de São Paulo</p>
+                <div class="hero-buttons">
+                    <a href="#mapa-interativo" class="btn-primary">Ver Mapa</a>
+                    <a href="#doacoes" class="btn-secondary">Fazer Doação</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span class="stat-number">142</span>
+                        <span class="stat-label">Alertas Ativos</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number">24.5k</span>
+                        <span class="stat-label">Pessoas Protegidas</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="stat-number">78</span>
+                        <span class="stat-label">Áreas Monitoradas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Alertas -->
+    <section id="situacoes" class="alert-section">
+        <div class="container">
+            <h2>Alertas Recentes</h2>
+            <div class="alert-grid">
+                <div class="alert-card danger">
+                    <div class="alert-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h3>Alagamento Grave</h3>
+                        <p>Região do Tatuapé com alagamento acima de 1 metro. Evite a região.</p>
+                        <span class="alert-time">Atualizado há 15 minutos</span>
+                    </div>
+                </div>
+                <div class="alert-card warning">
+                    <div class="alert-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h3>Risco de Deslizamento</h3>
+                        <p>Encostas em Parelheiros em estado de atenção máxima.</p>
+                        <span class="alert-time">Atualizado há 1 hora</span>
+                    </div>
+                </div>
+                <div class="alert-card info">
+                    <div class="alert-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h3>Ventos Fortes</h3>
+                        <p>Região da Serra da Cantareira com ventos de até 80km/h.</p>
+                        <span class="alert-time">Atualizado há 3 horas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="alert-actions">
+                <button class="btn-alert"><i class="fas fa-bell"></i> Receber Alertas por SMS</button>
+                <p class="sms-code">Envie <strong>ALERTA SP</strong> para <strong>40199</strong></p>
+            </div>
+        </div>
+    </section>
 
     <!-- Nova Seção Hub de Informação -->
     <section id="hub-info" class="hub-section">
@@ -73,71 +144,84 @@
                 <h3>Fontes de Dados Confiáveis</h3>
                 <div class="sources-grid">
                     <div class="source-item">
-                        <img src="https://via.placeholder.com/100x50?text=Prefeitura" alt="Prefeitura SP">
+                        <img src="img/logos/prefeitura.png" alt="Prefeitura SP">
                     </div>
                     <div class="source-item">
-                        <img src="https://via.placeholder.com/100x50?text=Defesa+Civil" alt="Defesa Civil">
+                        <img src="img/logos/Defesa-Civil-logo-portal.png" alt="Defesa Civil">
                     </div>
                     <div class="source-item">
-                        <img src="https://via.placeholder.com/100x50?text=Cruz+Vermelha" alt="Cruz Vermelha">
-                    </div>
-                    <div class="source-item">
-                        <img src="https://via.placeholder.com/100x50?text=Google+Maps" alt="Google Maps">
+                        <img src="img/logos/google maps.png" alt="Google Maps">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Nova Seção Mapa Interativo -->
-    <section id="mapa-interativo" class="map-section">
+    
+
+    <!-- Seção de Monitoramento em Tempo Real -->
+    <section id="tempo-real" class="realtime-section">
         <div class="container">
-            <h2>Mapa de Recursos</h2>
-            <p class="section-subtitle">Encontre ajuda próxima a você em tempo real</p>
+            <h2>Monitoramento em Tempo Real</h2>
+            <p class="section-subtitle">Acompanhe as situações de risco em São Paulo</p>
             
-            <div class="map-filters">
-                <div class="filter-group">
-                    <label for="location-type">Tipo de Local:</label>
-                    <select id="location-type">
-                        <option value="all">Todos</option>
-                        <option value="health">Saúde</option>
-                        <option value="safety">Segurança</option>
-                        <option value="shelter">Abrigos</option>
-                        <option value="food">Alimentação</option>
-                    </select>
+            <div class="realtime-content">
+                <div class="realtime-map">
+                    <!-- ÁREA DO MAPA COM SUA IMAGEM -->
+                    <div class="map-container">
+                        <img src="img/logos/zl mapa.png" alt="Mapa da Zona Leste de São Paulo" class="map-image">
+                        
+                        <div class="map-legend">
+                            <div class="legend-item"><span class="legend-color danger"></span> Área de Risco</div>
+                            <div class="legend-item"><span class="legend-color warning"></span> Monitoramento Intenso</div>
+                            <div class="legend-item"><span class="legend-color safe"></span> Área Segura</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="filter-group">
-                    <label for="availability">Disponibilidade:</label>
-                    <select id="availability">
-                        <option value="all">Todos</option>
-                        <option value="now">Abertos Agora</option>
-                        <option value="24h">24 Horas</option>
-                    </select>
+                <div class="realtime-data">
+                    <h3>Dados em Tempo Real</h3>
+                    <div class="data-grid">
+                        <div class="data-card">
+                            <i class="fas fa-tint"></i>
+                            <div>
+                                <span class="data-value">85mm</span>
+                                <span class="data-label">Precipitação (24h)</span>
+                            </div>
+                        </div>
+                        <div class="data-card">
+                            <i class="fas fa-river"></i>
+                            <div>
+                                <span class="data-value">2.8m</span>
+                                <span class="data-label">Nível do Rio Tietê</span>
+                            </div>
+                        </div>
+                        <div class="data-card">
+                            <i class="fas fa-hill-rockslide"></i>
+                            <div>
+                                <span class="data-value">12</span>
+                                <span class="data-label">Áreas em Alerta</span>
+                            </div>
+                        </div>
+                        <div class="data-card">
+                            <i class="fas fa-temperature-high"></i>
+                            <div>
+                                <span class="data-value">28°C</span>
+                                <span class="data-label">Temperatura</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-info">
+                        <h4>Status dos Sensores</h4>
+                        <div class="progress-bar" style="width: 92%;"></div>
+                        <p>92% dos sensores operando normalmente</p>
+                    </div>
+                    
+                    <button class="btn-sensor">
+                        <i class="fas fa-sync-alt"></i> Atualizar Dados
+                    </button>
                 </div>
-                
-                <div class="filter-group">
-                    <label for="social">Recursos Sociais:</label>
-                    <select id="social">
-                        <option value="none">Nenhum</option>
-                        <option value="water">Água Potável</option>
-                        <option value="bathroom">Banheiro Gratuito</option>
-                        <option value="wifi">Wi-Fi Livre</option>
-                    </select>
-                </div>
-                
-                <button id="voice-search" class="btn-voice">
-                    <i class="fas fa-microphone"></i> Busca por Voz
-                </button>
-            </div>
-            
-            <div id="map" class="interactive-map"></div>
-            
-            <div class="map-legend">
-                <div class="legend-item"><span class="legend-color health"></span> Saúde</div>
-                <div class="legend-item"><span class="legend-color safety"></span> Segurança</div>
-                <div class="legend-item"><span class="legend-color shelter"></span> Abrigos</div>
-                <div class="legend-item"><span class="legend-color food"></span> Alimentação</div>
             </div>
         </div>
     </section>
@@ -757,7 +841,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="logo eco alerta.jpg" style="width: 50px;" alt="logoecoalerta">
+                    <img src="img/logos/logo eco alerta.jpg" style="width: 50px;" alt="logoecoalerta">
                 </div>
                 
                 <div class="footer-links">
@@ -811,6 +895,5 @@
     </button>
 
     <script src="script.js"></script>
-    <script src="map.js"></script>
 </body>
 </html>

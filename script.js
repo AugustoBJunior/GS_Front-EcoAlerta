@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener('DOMContentLoaded', function() {
     // Menu mobile
     const hamburger = document.querySelector('.hamburger');
@@ -190,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Tabs de doação - CORREÇÃO APLICADA AQUI
+    // Tabs de doação
     const donationTabButtons = document.querySelectorAll('.donation-tab-btn');
     const donationTabContents = document.querySelectorAll('.donation-tab-content');
 
