@@ -6,14 +6,16 @@
     <title>SP Alerta - Monitoramento de Desastres</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Adicionando a API do Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&libraries=places&callback=initMap" async defer></script>
+    
 </head>
 <body>
     <!-- Barra de Navegação -->
     <nav id="navbar">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-shield-alt"></i>
-                <span>SP ALERTA</span>
+                <img src="logo eco alerta.jpg" alt="ecoalerta">
             </div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
@@ -31,222 +33,255 @@
         </div>
     </nav>
 
-    <!-- Seção Hero -->
-    <section id="home" class="hero">
+
+    <!-- Nova Seção Hub de Informação -->
+    <section id="hub-info" class="hub-section">
         <div class="container">
-            <div class="hero-content">
-                <h1>Monitoramento Inteligente de Desastres</h1>
-                <p>Tecnologia avançada para proteger vidas e o meio ambiente em São Paulo e Grande ABC</p>
-                <div class="hero-buttons">
-                    <a href="#situacoes" class="btn-primary">Ver Situações Atuais</a>
-                    <a href="#alertas" class="btn-secondary">Alertas Recentes</a>
+            <h2>Hub de Informação</h2>
+            <p class="section-subtitle">Dados atualizados e verificados para sua segurança</p>
+            
+            <div class="hub-content">
+                <div class="hub-card">
+                    <div class="hub-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Cadastro de Pontos de Apoio</h3>
+                    <p>Cadastre ou atualize informações de locais que podem ajudar em situações de emergência.</p>
+                    <button id="open-register-modal" class="btn-hub">Cadastrar Ponto</button>
+                </div>
+                
+                <div class="hub-card">
+                    <div class="hub-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Verificação de Dados</h3>
+                    <p>Nossa equipe verifica todas as informações a cada 6 meses para garantir precisão.</p>
+                    <button id="report-error" class="btn-hub">Reportar Erro</button>
+                </div>
+                
+                <div class="hub-card">
+                    <div class="hub-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Sistema de Reputação</h3>
+                    <p>Contribuidores frequentes ganham selos e benefícios por ajudar a comunidade.</p>
+                    <button id="view-ranking" class="btn-hub">Ver Ranking</button>
                 </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <span class="stat-number" data-count="12500">0</span>
-                    <span class="stat-label">Pessoas Ajudadas</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-bell"></i>
-                    <span class="stat-number" data-count="328">0</span>
-                    <span class="stat-label">Alertas Emitidos</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span class="stat-number" data-count="45">0</span>
-                    <span class="stat-label">Áreas Monitoradas</span>
+            
+            <div class="data-sources">
+                <h3>Fontes de Dados Confiáveis</h3>
+                <div class="sources-grid">
+                    <div class="source-item">
+                        <img src="https://via.placeholder.com/100x50?text=Prefeitura" alt="Prefeitura SP">
+                    </div>
+                    <div class="source-item">
+                        <img src="https://via.placeholder.com/100x50?text=Defesa+Civil" alt="Defesa Civil">
+                    </div>
+                    <div class="source-item">
+                        <img src="https://via.placeholder.com/100x50?text=Cruz+Vermelha" alt="Cruz Vermelha">
+                    </div>
+                    <div class="source-item">
+                        <img src="https://via.placeholder.com/100x50?text=Google+Maps" alt="Google Maps">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Alertas -->
-    <section id="alertas" class="alert-section">
+    <!-- Nova Seção Mapa Interativo -->
+    <section id="mapa-interativo" class="map-section">
         <div class="container">
-            <h2>Alertas Recentes</h2>
-            <div class="alert-grid">
-                <div class="alert-card danger">
-                    <div class="alert-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="alert-content">
-                        <h3>Risco de Alagamento - Zona Leste</h3>
-                        <p>Áreas próximas ao Rio Tietê em estado de atenção. Evite deslocamentos não essenciais.</p>
-                        <span class="alert-time">Há 2 horas</span>
-                    </div>
+            <h2>Mapa de Recursos</h2>
+            <p class="section-subtitle">Encontre ajuda próxima a você em tempo real</p>
+            
+            <div class="map-filters">
+                <div class="filter-group">
+                    <label for="location-type">Tipo de Local:</label>
+                    <select id="location-type">
+                        <option value="all">Todos</option>
+                        <option value="health">Saúde</option>
+                        <option value="safety">Segurança</option>
+                        <option value="shelter">Abrigos</option>
+                        <option value="food">Alimentação</option>
+                    </select>
                 </div>
-                <div class="alert-card warning">
-                    <div class="alert-icon">
-                        <i class="fas fa-cloud-showers-heavy"></i>
-                    </div>
-                    <div class="alert-content">
-                        <h3>Temporal - Grande </h3>
-                        <p>Previsão de chuvas intensas nas próximas 3 horas. Atenção a ventos fortes.</p>
-                        <span class="alert-time">Há 5 horas</span>
-                    </div>
+                
+                <div class="filter-group">
+                    <label for="availability">Disponibilidade:</label>
+                    <select id="availability">
+                        <option value="all">Todos</option>
+                        <option value="now">Abertos Agora</option>
+                        <option value="24h">24 Horas</option>
+                    </select>
                 </div>
-                <div class="alert-card info">
-                    <div class="alert-icon">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                    <div class="alert-content">
-                        <h3>Monitoramento de Encostas - São Bernardo</h3>
-                        <p>Áreas de risco sob monitoramento contínuo. Moradores em alerta.</p>
-                        <span class="alert-time">Hoje, 08:30</span>
-                    </div>
+                
+                <div class="filter-group">
+                    <label for="social">Recursos Sociais:</label>
+                    <select id="social">
+                        <option value="none">Nenhum</option>
+                        <option value="water">Água Potável</option>
+                        <option value="bathroom">Banheiro Gratuito</option>
+                        <option value="wifi">Wi-Fi Livre</option>
+                    </select>
                 </div>
-            </div>
-            <div class="alert-actions">
-                <button id="receber-alertas" class="btn-alert">
-                    <i class="fas fa-sms"></i> Receber Alertas via SMS
+                
+                <button id="voice-search" class="btn-voice">
+                    <i class="fas fa-microphone"></i> Busca por Voz
                 </button>
-                <div class="sms-code">
-                    Envie <strong>ALERTA SP</strong> para <strong>40199</strong>
-                </div>
+            </div>
+            
+            <div id="map" class="interactive-map"></div>
+            
+            <div class="map-legend">
+                <div class="legend-item"><span class="legend-color health"></span> Saúde</div>
+                <div class="legend-item"><span class="legend-color safety"></span> Segurança</div>
+                <div class="legend-item"><span class="legend-color shelter"></span> Abrigos</div>
+                <div class="legend-item"><span class="legend-color food"></span> Alimentação</div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Situações -->
-    <section id="situacoes" class="situations-section">
+    <!-- Nova Seção Botão de Socorro -->
+    <section id="socorro" class="emergency-section">
         <div class="container">
-            <h2>Últimas Catástrofes</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="alagamento">Alagamentos</button>
-                <button class="filter-btn" data-filter="deslizamento">Deslizamentos</button>
-                <button class="filter-btn" data-filter="tempestade">Tempestades</button>
-                <button class="filter-btn" data-filter="incendio">Incêndios</button>
+            <h2>Modo Emergência</h2>
+            <p class="section-subtitle">Acesso rápido a ajuda quando você mais precisa</p>
+            
+            <div class="emergency-content">
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Saúde</h3>
+                    <p>Hospitais, UBS, farmácias e serviços de saúde próximos.</p>
+                    <button class="btn-emergency" data-type="health">Acionar</button>
+                </div>
+                
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança</h3>
+                    <p>Delegacias, postos policiais e serviços de proteção.</p>
+                    <button class="btn-emergency" data-type="safety">Acionar</button>
+                </div>
+                
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Básico</h3>
+                    <p>Abrigos, bancos de alimento e recursos essenciais.</p>
+                    <button class="btn-emergency" data-type="basic">Acionar</button>
+                </div>
             </div>
-            <div class="situations-grid">
-                <div class="situation-card" data-category="alagamento">
-                    <div class="situation-image">
-                        <img src="https://via.placeholder.com/400x250/1E3A8A/FFFFFF?text=Alagamento+Zona+Sul" alt="Alagamento na Zona Sul de São Paulo">
-                        <span class="situation-date">28/05/2025</span>
-                    </div>
-                    <div class="situation-content">
-                        <h3>Alagamento na Zona Sul</h3>
-                        <p>Chuvas intensas causaram alagamentos em várias vias da região, com pontos críticos na Av. dos Bandeirantes.</p>
-                        <div class="situation-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> São Paulo - Zona Sul</span>
-                            <span><i class="fas fa-users"></i> 120 famílias afetadas</span>
-                        </div>
-                        <a href="#" class="btn-situation">Ver Detalhes</a>
-                    </div>
-                </div>
-                <div class="situation-card" data-category="deslizamento">
-                    <div class="situation-image">
-                        <img src="https://via.placeholder.com/400x250/1E3A8A/FFFFFF?text=Deslizamento+Embu" alt="Deslizamento em Embu das Artes">
-                        <span class="situation-date">25/05/2025</span>
-                    </div>
-                    <div class="situation-content">
-                        <h3>Deslizamento em Embu</h3>
-                        <p>Área de risco deslizou após 72h de chuvas contínuas. Defesa Civil monitora outras encostas na região.</p>
-                        <div class="situation-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Embu das Artes</span>
-                            <span><i class="fas fa-users"></i> 35 famílias desalojadas</span>
-                        </div>
-                        <a href="#" class="btn-situation">Ver Detalhes</a>
-                    </div>
-                </div>
-                <div class="situation-card" data-category="tempestade">
-                    <div class="situation-image">
-                        <img src="https://via.placeholder.com/400x250/1E3A8A/FFFFFF?text=Tempestade+ABC" alt="Tempestade no ABC">
-                        <span class="situation-date">22/05/2025</span>
-                    </div>
-                    <div class="situation-content">
-                        <h3>Tempestade no ABC</h3>
-                        <p>Ventos de até 80km/h causaram queda de árvores e interrupção no fornecimento de energia em partes da região.</p>
-                        <div class="situation-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> ABC Paulista</span>
-                            <span><i class="fas fa-users"></i> 8 feridos leves</span>
-                        </div>
-                        <a href="#" class="btn-situation">Ver Detalhes</a>
-                    </div>
-                </div>
-                <div class="situation-card" data-category="incendio">
-                    <div class="situation-image">
-                        <img src="" alt="Incêndio florestal em Santo André">
-                        <span class="situation-date">18/05/2025</span>
-                    </div>
-                    <div class="situation-content">
-                        <h3>Incêndio em Santo André</h3>
-                        <p>Fogo consumiu 12 hectares de mata na Serra do Mar. Bombeiros controlaram após 36h de trabalho.</p>
-                        <div class="situation-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Santo André</span>
-                            <span><i class="fas fa-users"></i> Nenhuma vítima</span>
-                        </div>
-                        <a href="#" class="btn-situation">Ver Detalhes</a>
-                    </div>
-                </div>
+            
+            <div class="sos-container">
+                <button id="sos-button" class="btn-sos">
+                    <i class="fas fa-exclamation-triangle"></i> SOCORRO
+                </button>
+                <p class="sos-info">Pressione para acionar serviços de emergência próximos e contatar autoridades.</p>
+            </div>
+            
+            <div class="offline-info">
+                <i class="fas fa-download"></i>
+                <p>Baixe dados essenciais para acesso offline em situações sem internet.</p>
+                <button id="download-offline" class="btn-offline">Baixar Agora</button>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Monitoramento em Tempo Real -->
-    <section id="tempo-real" class="realtime-section">
-        <div class="container">
-            <h2>Monitoramento em Tempo Real</h2>
-            <div class="realtime-content">
-                <div class="realtime-map">
-                    <div class="map-container">
-                        <img src="https://via.placeholder.com/800x500/1E3A8A/FFFFFF?text=Mapa+de+Riscos+SP" alt="Mapa de riscos em tempo real" class="map-image">
-                        <div class="map-legend">
-                            <div class="legend-item"><span class="legend-color danger"></span> Alto Risco</div>
-                            <div class="legend-item"><span class="legend-color warning"></span> Médio Risco</div>
-                            <div class="legend-item"><span class="legend-color safe"></span> Sem Risco</div>
-                        </div>
-                    </div>
+    <!-- Modal para Cadastro de Pontos -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cadastrar Ponto de Apoio</h2>
+            
+            <form id="point-register-form">
+                <div class="form-group">
+                    <label for="point-name">Nome do Local*</label>
+                    <input type="text" id="point-name" required>
                 </div>
-                <div class="realtime-data">
-                    <h3>Dados Atuais</h3>
-                    <div class="data-grid">
-                        <div class="data-card">
-                            <i class="fas fa-tint"></i>
-                            <div class="data-content">
-                                <span class="data-value">87mm</span>
-                                <span class="data-label">Precipitação (24h)</span>
-                            </div>
-                        </div>
-                        <div class="data-card">
-                            <i class="fas fa-thermometer-half"></i>
-                            <div class="data-content">
-                                <span class="data-value">23°C</span>
-                                <span class="data-label">Temperatura</span>
-                            </div>
-                        </div>
-                        <div class="data-card">
-                            <i class="fas fa-wind"></i>
-                            <div class="data-content">
-                                <span class="data-value">15km/h</span>
-                                <span class="data-label">Veloc. Vento</span>
-                            </div>
-                        </div>
-                        <div class="data-card">
-                            <i class="fas fa-fire"></i>
-                            <div class="data-content">
-                                <span class="data-value">4</span>
-                                <span class="data-label">Focos de Incêndio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sensor-info">
-                        <h4>Sensores Ativos</h4>
-                        <div class="sensor-progress">
-                            <div class="progress-bar" style="width: 92%"></div>
-                            <span>92% (1,842/2,000)</span>
-                        </div>
-                        <p>Nossa rede de sensores IoT monitora encostas, rios e áreas de risco 24h por dia.</p>
-                    </div>
-                    <button class="btn-sensor">
-                        <i class="fas fa-map-marked-alt"></i> Ver Todos os Sensores
-                    </button>
+                
+                <div class="form-group">
+                    <label for="point-type">Tipo de Local*</label>
+                    <select id="point-type" required>
+                        <option value="">Selecione...</option>
+                        <option value="health">Saúde</option>
+                        <option value="safety">Segurança</option>
+                        <option value="shelter">Abrigo</option>
+                        <option value="food">Alimentação</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="point-address">Endereço*</label>
+                    <input type="text" id="point-address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="point-hours">Horário de Funcionamento</label>
+                    <input type="text" id="point-hours" placeholder="Ex: 24h ou 08h-18h">
+                </div>
+                
+                <div class="form-group">
+                    <label for="point-services">Serviços Oferecidos</label>
+                    <textarea id="point-services" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="point-phone">Telefone</label>
+                    <input type="tel" id="point-phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="point-photo">Foto do Local (opcional)</label>
+                    <input type="file" id="point-photo" accept="image/*">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Enviar Cadastro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de SOS -->
+    <div id="sos-modal" class="modal">
+        <div class="modal-content emergency">
+            <h2><i class="fas fa-exclamation-triangle"></i> EMERGÊNCIA</h2>
+            <p>Você está prestes a acionar o modo de emergência. O que você precisa?</p>
+            
+            <div class="emergency-options">
+                <button class="sos-option" data-service="192">
+                    <i class="fas fa-ambulance"></i> SAMU (192)
+                </button>
+                <button class="sos-option" data-service="193">
+                    <i class="fas fa-fire"></i> Bombeiros (193)
+                </button>
+                <button class="sos-option" data-service="190">
+                    <i class="fas fa-police-badge"></i> Polícia (190)
+                </button>
+                <button class="sos-option" data-service="civil">
+                    <i class="fas fa-hands-helping"></i> Defesa Civil (199)
+                </button>
+            </div>
+            
+            <div class="sos-confirm">
+                <p>Deseja realmente acionar o serviço de emergência?</p>
+                <div class="confirm-buttons">
+                    <button id="confirm-sos" class="btn-confirm">Sim, acionar</button>
+                    <button id="cancel-sos" class="btn-cancel">Cancelar</button>
                 </div>
             </div>
+            
+            <div class="sos-location">
+                <p><i class="fas fa-map-marker-alt"></i> Sua localização aproximada: <span id="user-location">Carregando...</span></p>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- Seção de Tecnologia -->
     <section id="tecnologia" class="tech-section">
@@ -713,9 +748,6 @@
                         </div>
                     </div>
                 </div>
-                
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -725,9 +757,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>SP ALERTA</span>
-                    <p>Tecnologia para proteger vidas e o meio ambiente</p>
+                    <img src="logo eco alerta.jpg" style="width: 50px;" alt="logoecoalerta">
                 </div>
                 
                 <div class="footer-links">
@@ -781,5 +811,6 @@
     </button>
 
     <script src="script.js"></script>
+    <script src="map.js"></script>
 </body>
 </html>
