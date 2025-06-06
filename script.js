@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
     // Menu mobile
     const hamburger = document.querySelector('.hamburger');
@@ -16,6 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
             });
+        });
+    }
+
+    // Botão de SMS
+    const smsBtn = document.getElementById('sms-btn');
+    if (smsBtn) {
+        smsBtn.addEventListener('click', function() {
+            alert('Cadastro realizado com sucesso! Você irá receber alertas via SMS.');
         });
     }
     
@@ -37,6 +44,129 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    //monitoramento
+document.querySelectorAll('.botao-risco-dark, .botao-monitorado-dark, .botao-seguro-dark').forEach(botao => {
+    botao.addEventListener('click', function() {
+        const mensagem = this.getAttribute('data-alerta');
+        mostrarAlertaDark(mensagem);
+    });
+});
+
+function mostrarAlertaDark(mensagem) {
+    const alerta = document.createElement('div');
+    alerta.className = 'alerta-dark';
+    alerta.innerHTML = `
+        <i class="fas fa-info-circle"></i>
+        <span>${mensagem}</span>
+    `;
+    
+    document.body.appendChild(alerta);
+    
+    setTimeout(() => {
+        alerta.classList.add('visible');
+    }, 10);
+    
+    setTimeout(() => {
+        alerta.classList.remove('visible');
+        setTimeout(() => {
+            alerta.remove();
+        }, 300);
+    }, 2500);
+}
+
+function mostrarAlerta(mensagem) {
+    const alerta = document.createElement('div');
+    alerta.className = 'alerta-estetico';
+    alerta.innerHTML = `
+        <i class="fas fa-info-circle"></i>
+        <span>${mensagem}</span>
+    `;
+    
+    document.body.appendChild(alerta);
+    
+    setTimeout(() => {
+        alerta.classList.add('visible');
+    }, 10);
+    
+    setTimeout(() => {
+        alerta.classList.remove('visible');
+        setTimeout(() => {
+            alerta.remove();
+        }, 300);
+    }, 3000);
+}
+
+document.querySelectorAll('.botao-mapa').forEach(botao => {
+    botao.addEventListener('click', function() {
+        const mensagem = this.getAttribute('data-alerta');
+        mostrarAlerta(mensagem);
+        
+        // Destaque visual do botão clicado
+        document.querySelectorAll('.botao-mapa').forEach(btn => {
+            btn.style.background = 'rgba(30, 41, 59, 0.8)';
+        });
+        
+        if (this.classList.contains('botao-risco')) {
+            this.style.background = 'rgba(220, 38, 38, 0.8)';
+        } else if (this.classList.contains('botao-monitorar')) {
+            this.style.background = 'rgba(234, 179, 8, 0.8)';
+        } else if (this.classList.contains('botao-seguro')) {
+            this.style.background = 'rgba(34, 197, 94, 0.8)';
+        }
+    });
+});
+
+// Interação com o mapa
+document.querySelectorAll('.area-risco, .area-monitorada, .area-segura').forEach(area => {
+    area.addEventListener('click', function() {
+        const info = this.getAttribute('data-info');
+        mostrarAlerta(info);
+    });
+});
+
+function mostrarAlerta(mensagem) {
+    const alerta = document.createElement('div');
+    alerta.className = 'alerta-estetico';
+    alerta.innerHTML = `
+        <i class="fas fa-info-circle"></i>
+        <span>${mensagem}</span>
+    `;
+    
+    document.body.appendChild(alerta);
+    
+    setTimeout(() => {
+        alerta.classList.add('visible');
+    }, 10);
+    
+    setTimeout(() => {
+        alerta.classList.remove('visible');
+        setTimeout(() => {
+            alerta.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Simulação de atualização de dados no tempo real
+function atualizarDados() {
+    const valores = {
+        temperatura: Math.floor(Math.random() * 5) + 20,
+        chuva: Math.floor(Math.random() * 20) + 70,
+        rio: (Math.random() * 0.5 + 2.5).toFixed(1),
+        alertas: Math.floor(Math.random() * 3) + 10
+    };
+    
+    document.querySelector('.dado-item:nth-child(1) .dado-valor').textContent = `${valores.temperatura}°C`;
+    document.querySelector('.dado-item:nth-child(2) .dado-valor').textContent = `${valores.chuva}mm`;
+    document.querySelector('.dado-item:nth-child(3) .dado-valor').textContent = `${valores.rio}m`;
+    document.querySelector('.dado-item:nth-child(4) .dado-valor').textContent = valores.alertas;
+}
+
+// ha cada 5seg atualiza
+setInterval(atualizarDados, 5000);
+atualizarDados(); // Inicializa os dados
+
+
     
     // Ativar link ativo na navegação
     const sections = document.querySelectorAll('section');
@@ -64,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+
     // Botão voltar ao topo
     const backToTopBtn = document.getElementById('backToTop');
     
@@ -110,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+        
         
         // Configurar os botões de opção de emergência
         sosOptions.forEach(option => {
@@ -215,6 +347,47 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Modal de Doação
+const donationModal = document.getElementById('donationModal');
+const donateButtons = document.querySelectorAll('.btn-donate, .btn-custom-donate');
+const closeModal = document.querySelector('.close-modal');
+const btnModal = document.querySelector('.btn-modal');
+
+// Função para mostrar o modal
+function showDonationModal() {
+    donationModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Previne scroll quando o modal está aberto
+}
+
+// Função para esconder o modal
+function hideDonationModal() {
+    donationModal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaura o scroll
+}
+
+// Adiciona evento de clique a todos os botões de doação
+donateButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        showDonationModal();
+    });
+});
+
+// Fecha o modal quando clicar no X
+closeModal.addEventListener('click', hideDonationModal);
+
+// Fecha o modal quando clicar no botão "Entendido"
+btnModal.addEventListener('click', hideDonationModal);
+
+// Fecha o modal quando clicar fora do conteúdo
+donationModal.addEventListener('click', function(e) {
+    if (e.target === donationModal) {
+        hideDonationModal();
+    }
+});
+
+    
     
     // Accordion FAQ
     const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -279,30 +452,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Botão de voz no mapa
-    const voiceBtn = document.getElementById('voice-search');
-    if (voiceBtn) {
-        voiceBtn.addEventListener('click', function() {
-            if ('webkitSpeechRecognition' in window) {
-                const recognition = new webkitSpeechRecognition();
-                recognition.lang = 'pt-BR';
-                recognition.start();
-                
-                recognition.onresult = function(event) {
-                    const command = event.results[0][0].transcript.toLowerCase();
-                    alert(`Comando de voz reconhecido: "${command}"`);
-                    // Aqui você implementaria as ações
-                };
-                
-                recognition.onerror = function(event) {
-                    alert('Erro no reconhecimento de voz: ' + event.error);
-                };
-            } else {
-                alert('Seu navegador não suporta reconhecimento de voz.');
-            }
-        });
-    }
-    
     // Botão de download offline
     const offlineBtn = document.getElementById('download-offline');
     if (offlineBtn) {
@@ -319,59 +468,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// Função de inicialização do mapa
-function initMap() {
-    // Verifica se o elemento do mapa existe
-    if (!document.getElementById('map')) return;
-    
-    const saoPaulo = { lat: -23.5505, lng: -46.6333 };
-    
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: saoPaulo,
-        styles: [
-            { featureType: "poi", stylers: [{ visibility: "off" }] },
-            { featureType: "transit", elementType: "labels.icon", stylers: [{ visibility: "off" }] }
-        ]
-    });
-    
-    // Adicionar marcadores de exemplo
-    const locations = [
-        { position: { lat: -23.5505, lng: -46.6333 }, title: "Hospital das Clínicas", type: "health" },
-        { position: { lat: -23.5605, lng: -46.6433 }, title: "Delegacia da Sé", type: "safety" },
-        { position: { lat: -23.5405, lng: -46.6233 }, title: "Abrigo Central", type: "shelter" },
-        { position: { lat: -23.5705, lng: -46.6533 }, title: "Banco de Alimentos", type: "food" }
-    ];
-    
-    const icons = {
-        health: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
-        safety: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-        shelter: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
-        food: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
-    };
-    
-    locations.forEach(location => {
-        new google.maps.Marker({
-            position: location.position,
-            map: map,
-            title: location.title,
-            icon: icons[location.type]
-        });
-    });
-    
-    // Função para filtrar marcadores
-    window.updateMapFilters = function() {
-        const locationType = document.getElementById('location-type').value;
-        alert(`Filtro aplicado: ${locationType}`);
-        // Implementaria a lógica de filtragem aqui
-    };
-}
-
-// Tratamento de erro do Google Maps
-window.gm_authFailure = function() {
-    const mapElement = document.getElementById('map');
-    if (mapElement) {
-        mapElement.innerHTML = '<div class="map-error">Erro ao carregar o mapa. Recarregue a página.</div>';
-    }
-};

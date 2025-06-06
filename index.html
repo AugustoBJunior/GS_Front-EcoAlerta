@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SP Alerta - Monitoramento de Desastres</title>
+    <title>ECO ALERTA - TECNOLOGIA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&libraries=places&callback=initMap" async defer></script>
 </head>
 <body>
     <!-- Barra de Navegação -->
@@ -16,13 +15,14 @@
                 <img src="img/logos/logo eco alerta.jpg" alt="ecoalerta">
             </div>
             <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#início" class="active">Início</a></li>
                 <li><a href="#situacoes">Situações</a></li>
-                <li><a href="#tempo-real">Tempo Real</a></li>
+                <li><a href="#monitoramento">Tempo Real</a></li>
                 <li><a href="#tecnologia">Nossa Tecnologia</a></li>
+                <li><a href="#redes-de-apoio">Redes de apoio</a></li>
+                <li><a href="#doacoes">Doações</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contato">Contato</a></li>
-                <li><a href="#doacoes">Doações</a></li>
                 <li><a href="#equipe">Equipe</a></li>
             </ul>
             <div class="hamburger">
@@ -32,13 +32,13 @@
     </nav>
 
     <!-- Seção Hero (Home) -->
-    <section id="home" class="hero">
+    <section id="início" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>SP Alerta - Monitoramento de Desastres</h1>
-                <p>Sistema inteligente de prevenção e resposta a desastres naturais na região metropolitana de São Paulo</p>
+                <h1>ECO ALERTA - TECNOLOGIA</h1>
+                <p><strong> uma plataforma digital voltada para o monitoramento em tempo real e a resposta rápida a desastres naturais em São Paulo e região do Grande ABCD. Nossa solução integra informações críticas sobre eventos climáticos extremos, alagamentos e outras catástrofes, permitindo à população e autoridades acesso rápido e centralizado a dados confiáveis.<strong></p>
                 <div class="hero-buttons">
-                    <a href="#mapa-interativo" class="btn-primary">Ver Mapa</a>
+                    <a href="#monitoramento" class="btn-primary">Ver Mapa</a>
                     <a href="#socorro" class="btn-secondary">Socorro</a>
                     <a href="#doacoes" class="btn-terceary">Fazer Doação</a>
                 </div>
@@ -100,13 +100,17 @@
                 </div>
             </div>
             <div class="alert-actions">
-                <button class="btn-alert"><i class="fas fa-bell"></i> Receber Alertas por SMS</button>
-                <p class="sms-code">Envie <strong>ALERTA SP</strong> para <strong>40199</strong></p>
+                <div class="sms-container">
+                    <button id="sms-btn" class="btn-alert">
+                        <i class="fas fa-bell"></i> Receber Alertas por SMS
+                    </button>
+                    <p class="sms-code">Envie <strong>ALERTA SP</strong> para <strong>40199</strong></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Nova Seção Hub de Informação -->
+    <!-- Seção Hub de Informação -->
     <section id="hub-info" class="hub-section">
         <div class="container">
             <h2>Hub de Informação</h2>
@@ -120,24 +124,6 @@
                     <h3>Cadastro de Pontos de Apoio</h3>
                     <p>Cadastre ou atualize informações de locais que podem ajudar em situações de emergência.</p>
                     <button id="open-register-modal" class="btn-hub">Cadastrar Ponto</button>
-                </div>
-                
-                <div class="hub-card">
-                    <div class="hub-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Verificação de Dados</h3>
-                    <p>Nossa equipe verifica todas as informações a cada 6 meses para garantir precisão.</p>
-                    <button id="report-error" class="btn-hub">Reportar Erro</button>
-                </div>
-                
-                <div class="hub-card">
-                    <div class="hub-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3>Sistema de Reputação</h3>
-                    <p>Contribuidores frequentes ganham selos e benefícios por ajudar a comunidade.</p>
-                    <button id="view-ranking" class="btn-hub">Ver Ranking</button>
                 </div>
             </div>
             
@@ -157,76 +143,70 @@
             </div>
         </div>
     </section>
-
-    
-
-    <!-- Seção de Monitoramento em Tempo Real -->
-    <section id="tempo-real" class="realtime-section">
-        <div class="container">
-            <h2>Monitoramento em Tempo Real</h2>
-            <p class="section-subtitle">Acompanhe as situações de risco em São Paulo</p>
+<!--monitoramento-->
+   
+<!-- Seção de Monitoramento em Tempo Real - Versão Aprimorada -->
+<section id="monitoramento" class="secao-estetica">
+    <div class="container">
+        <h2 class="titulo-destaque">Monitoramento em Tempo Real</h2>
+        <p class="subtitulo">Situações de risco em São Paulo</p>
+        
+        <div class="conteudo-mapa">
             
-            <div class="realtime-content">
-                <div class="realtime-map">
-                    <!-- ÁREA DO MAPA COM SUA IMAGEM -->
-                    <div class="map-container">
-                        <img src="img/logos/zl mapa.png" alt="Mapa da Zona Leste de São Paulo" class="map-image">
-                        <div class="map-legend">
-                            <div class="legend-item"><span class="legend-color danger"></span> Área de Risco</div>
-                            <div class="legend-item"><span class="legend-color warning"></span> Monitoramento Intenso</div>
-                            <div class="legend-item"><span class="legend-color safe"></span> Área Segura</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="realtime-data">
-                    <h3>Dados em Tempo Real</h3>
-                    <div class="data-grid">
-                        <div class="data-card">
-                            <i class="fas fa-tint"></i>
-                            <div>
-                                <span class="data-value">85mm</span>
-                                <span class="data-label">Precipitação (24h)</span>
-                            </div>
-                        </div>
-                        <div class="data-card">
-                            <i class="fas fa-river"></i>
-                            <div>
-                                <span class="data-value">2.8m</span>
-                                <span class="data-label">Nível do Rio Tietê</span>
-                            </div>
-                        </div>
-                        <div class="data-card">
-                            <i class="fas fa-hill-rockslide"></i>
-                            <div>
-                                <span class="data-value">12</span>
-                                <span class="data-label">Áreas em Alerta</span>
-                            </div>
-                        </div>
-                        <div class="data-card">
-                            <i class="fas fa-temperature-high"></i>
-                            <div>
-                                <span class="data-value">28°C</span>
-                                <span class="data-label">Temperatura</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="sensor-info">
-                        <h4>Status dos Sensores</h4>
-                        <div class="progress-bar" style="width: 92%;"></div>
-                        <p>92% dos sensores operando normalmente</p>
-                    </div>
-                    
-                    <button class="btn-sensor">
-                        <i class="fas fa-sync-alt"></i> Atualizar Dados
+            <div class="mapa-interativo">
+                <img src="img/mapa sao paulo.jpg" alt="Mapa de São Paulo" class="img-mapa">
+                <!-- areas do mapa -->
+                <div class="area-risco" style="top: 30%; left: 25%;" data-info="Área de risco: Enchente"></div>
+                <div class="area-monitorada" style="top: 45%; left: 60%;" data-info="Área monitorada: Deslizamento"></div>
+                <div class="area-segura" style="top: 20%; left: 70%;" data-info="Área segura: Sem alertas"></div>
+                <!-- botoes flutuantes -->
+                <div class="botoes-mapa">
+                    <button class="botao-mapa botao-risco" data-alerta="Mostrando áreas de risco">
+                        <i class="fas fa-exclamation-triangle"></i> Risco
+                    </button>
+                    <button class="botao-mapa botao-monitorar" data-alerta="Ativando monitoramento">
+                        <i class="fas fa-binoculars"></i> Monitorar
+                    </button>
+                    <button class="botao-mapa botao-seguro" data-alerta="Exibindo zonas seguras">
+                        <i class="fas fa-check-circle"></i> Seguras
                     </button>
                 </div>
             </div>
+            <div class="painel-dados">
+                <div class="dado-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <div>
+                        <span class="dado-valor">23°C</span>
+                        <small>Temperatura</small>
+                    </div>
+                </div>
+                <div class="dado-item">
+                    <i class="fas fa-cloud-rain"></i>
+                    <div>
+                        <span class="dado-valor">85mm</span>
+                        <small>Chuva 24h</small>
+                    </div>
+                </div>
+                <div class="dado-item">
+                    <i class="fas fa-water"></i>
+                    <div>
+                        <span class="dado-valor">2.8m</span>
+                        <small>Nível do rio</small>
+                    </div>
+                </div>
+                <div class="dado-item alerta">
+                    <i class="fas fa-exclamation"></i>
+                    <div>
+                        <span class="dado-valor">12</span>
+                        <small>Alertas</small>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Nova Seção Botão de Socorro -->
+    <!-- Seção Botão de Socorro -->
     <section id="socorro" class="emergency-section">
         <div class="container">
             <h2>Modo Emergência</h2>
@@ -276,7 +256,7 @@
         </div>
     </section>
 
-    <!-- Modal para Cadastro de Pontos -->
+    <!--Cadastro de Pontos -->
     <div id="register-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -332,7 +312,7 @@
         </div>
     </div>
 
-    <!-- Modal de SOS -->
+    <!-- SOS -->
     <div id="sos-modal" class="modal">
         <div class="modal-content emergency">
             <h2><i class="fas fa-exclamation-triangle"></i> EMERGÊNCIA</h2>
@@ -346,7 +326,7 @@
                     <i class="fas fa-fire"></i> Bombeiros (193)
                 </button>
                 <button class="sos-option" data-service="190">
-                    <i class="fas fa-police-badge"></i> Polícia (190)
+                    <i class="fas fa-user-shield"></i> Polícia (190)
                 </button>
                 <button class="sos-option" data-service="civil">
                     <i class="fas fa-hands-helping"></i> Defesa Civil (199)
@@ -479,7 +459,7 @@
     </section>
 
     <!-- Seção de Apoio -->
-    <section class="support-section">
+     <section id="redes-de-apoio" class="support-section">
         <div class="container">
             <h2>Redes de Apoio</h2>
             <p class="section-subtitle">Conectando pessoas e recursos em situações de emergência</p>
@@ -491,9 +471,9 @@
                     </div>
                     <h3>Grupos de WhatsApp</h3>
                     <ul class="support-list">
-                        <li>Alerta ABC - <a href="#">Entrar no grupo</a></li>
-                        <li>Defesa Civil ZL - <a href="#">Entrar no grupo</a></li>
-                        <li>Monitoramento SP - <a href="#">Entrar no grupo</a></li>
+                        <li>Alerta ABC - <a href="https://api.whatsapp.com/send/?phone=556120344611&text&type=phone_number&app_absent=0">Entrar no grupo</a></li>
+                        <li>Defesa Civil ZL - <a href="https://api.whatsapp.com/send/?phone=556120344611&text&type=phone_number&app_absent=0">Entrar no grupo</a></li>
+                        <li>Monitoramento SP - <a href="https://api.whatsapp.com/send/?phone=556120344611&text&type=phone_number&app_absent=0">Entrar no grupo</a></li>
                     </ul>
                 </div>
                 
@@ -516,7 +496,7 @@
                     </div>
                     <h3>Abrigos e Pontos de Apoio</h3>
                     <ul class="support-list">
-                        <li>São Paulo - <a href="https://www.google.com/maps/search/S%C3%A3o+Paulo+abrigos+,+hospitais,+bom+prato/@-23.563461,-46.5751886,11.33z?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D">Ver no mapa</a></li>
+                        <li>São Paulo - <a href="https://www.google.com/maps/search/abrigos+/@-23.5906066,-46.595358,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDYwMi4wIKXMDSoASAFQAw%3D%3D">Ver no mapa</a></li>
                         <li>Santo André - <a href="https://www.google.com/maps/search/Santo+Andr%C3%A9+hospitais,+abrigos/@-23.655372,-46.5391304,13.33z?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D">Ver no mapa</a></li>
                         <li>São Bernardo - <a href="https://www.google.com/maps/search/S%C3%A3o+Bernardo+do+Campo++abrigos,+restaurantes,+hospitais/@-23.6981199,-46.5623122,14z?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D">Ver no mapa</a></li>
                     </ul>
@@ -528,11 +508,11 @@
                     </div>
                     <h3>Voluntariado</h3>
                     <ul class="support-list">
-                        <li><a href="#">Cadastro de Voluntários</a></li>
-                        <li><a href="#">Treinamentos Online</a></li>
-                        <li><a href="#">Agenda de Ações</a></li>
+                        <li><a href="https://www.spsemprealerta.sp.gov.br/orientacoes/seja-um-voluntario/">Cadastro de Voluntários</a></li>
+                        <li><a href="https://www.venes.com.br/cursos/informacoes/175?_c_=175">Treinamentos Online</a></li>
+                        <li><a href="https://www.gov.br/cemaden/pt-br">Agenda de Ações</a></li>
                     </ul>
-                </div>
+                </div>              
             </div>
         </div>
     </section>
@@ -641,76 +621,99 @@
         </div>
     </section>
 
+    <!--Doação -->
+<div id="donationModal" class="donation-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--primary-light)">
+                <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/>
+            </svg>
+        </div>
+        <h3>Obrigado por sua doação!</h3>
+        <p>Sua generosidade fará uma grande diferença na vida de quem mais precisa.</p>
+        <button class="btn-modal">Entendido</button>
+    </div>
+</div>
+
     <!-- Seção FAQ -->
     <section id="faq" class="faq-section">
-    <div class="container">
-        <h2>Perguntas Frequentes</h2>
-        <p class="section-subtitle">Encontre respostas para as dúvidas mais comuns</p>
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <p class="section-subtitle">Encontre respostas para as dúvidas mais comuns</p>
 
-        <div class="faq-accordion">
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Como receber alertas da Defesa Civil?</h3>
-                    <i class="fas fa-chevron-down"></i>
+            <div class="faq-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Como receber alertas da Defesa Civil?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Você pode se cadastrar para receber alertas enviando um SMS com a palavra "ALERTA SP" para o número 40199. Também é possível baixar o aplicativo SP Alerta nas lojas de aplicativos ou acompanhar nossos canais oficiais.</p>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <p>Você pode se cadastrar para receber alertas enviando um SMS com a palavra "ALERTA SP" para o número 40199. Também é possível baixar o aplicativo SP Alerta nas lojas de aplicativos ou acompanhar nossos canais oficiais.</p>
-                </div>
-            </div>
 
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>O que fazer em caso de alagamento?</h3>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>O que fazer em caso de alagamento?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Em caso de alagamento:</h4><br>
+                        <p>1) Evite sair de casa se não for necessário;<br>
+                        2) Nunca tente atravessar ruas ou avenidas alagadas;<br>
+                        3) Desligue a energia elétrica se a água estiver subindo;<br>
+                        4) Em emergências, ligue para o 199 (Defesa Civil) ou 193 (Bombeiros).</p>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <p>Em caso de alagamento: 1) Evite sair de casa se não for necessário; 2) Nunca tente atravessar ruas ou avenidas alagadas; 3) Desligue a energia elétrica se a água estiver subindo; 4) Em emergências, ligue para o 199 (Defesa Civil) ou 193 (Bombeiros).</p>
-                </div>
-            </div>
 
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Como funciona o monitoramento em tempo real?</h3>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Como funciona o monitoramento em tempo real?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Nossa rede de sensores IoT coleta dados de encostas, rios e áreas de risco 24 horas por dia. Esses dados são processados por nossa inteligência artificial que identifica padrões e emite alertas quando detecta situações de risco. Toda a informação é disponibilizada em nosso mapa interativo.</p>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <p>Nossa rede de sensores IoT coleta dados de encostas, rios e áreas de risco 24 horas por dia. Esses dados são processados por nossa inteligência artificial que identifica padrões e emite alertas quando detecta situações de risco. Toda a informação é disponibilizada em nosso mapa interativo.</p>
-                </div>
-            </div>
 
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Como posso me voluntariar?</h3>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Como posso me voluntariar?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Você pode se cadastrar como voluntário através do nosso site na seção "Redes de Apoio". Oferecemos treinamentos online e presenciais para diferentes tipos de atuação, desde apoio psicológico até logística de emergência.</p>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <p>Você pode se cadastrar como voluntário através do nosso site na seção "Redes de Apoio". Oferecemos treinamentos online e presenciais para diferentes tipos de atuação, desde apoio psicológico até logística de emergência.</p>
-                </div>
-            </div>
 
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Como são utilizadas as doações?</h3>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Como são utilizadas as doações?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Todas as doações são direcionadas para:</h4><br>
+                        1) Aquisição de suprimentos emergenciais<br>
+                        2) Manutenção de equipamentos de monitoramento<br>
+                        3) Apoio às famílias afetadas<br>
+                        4) Programas de prevenção<br><br>
+                        <h4>Publicamos relatórios trimestrais com a prestação de contas detalhada.</h4>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <p>Todas as doações são direcionadas para: 1) Aquisição de suprimentos emergenciais; 2) Manutenção de equipamentos de monitoramento; 3) Apoio às famílias afetadas; 4) Programas de prevenção. Publicamos relatórios trimestrais com a prestação de contas detalhada.</p>
-                </div>
-            </div>
 
-            <!-- Corrigido: agora dentro da div .faq-accordion -->
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Onde posso localizar os lugares mais rápidos para caso de um alagamento?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p>Você pode acessar nosso canal de apoio, onde é possível verificar sua localização por meio do Google Maps. A plataforma identificará automaticamente os abrigos e hospitais mais próximos para casos de alagamento.</p>
-                </div>
-            </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Onde posso localizar os lugares mais rápidos para caso de um alagamento?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Você pode acessar nosso canal de apoio, onde é possível verificar sua localização por meio do Google Maps. A plataforma identificará automaticamente os abrigos e hospitais mais próximos para casos de alagamento.</p>
+                    </div>
+               
         </div>
-    </div>
-</section>
+        
+    </section>
 
     <!-- Seção de Contato -->
     <section id="contato" class="contact-section">
@@ -723,30 +726,23 @@
                     <div class="info-card">
                         <i class="fas fa-phone-alt"></i>
                         <h3>Telefone</h3>
-                        <p>0800 123 4567</p>
+                        <p>4002-8922</p>
                         <p>Atendimento 24h</p>
                     </div>
                     
                     <div class="info-card">
                         <i class="fas fa-envelope"></i>
                         <h3>E-mail</h3>
-                        <p>contato@spalerta.sp.gov.br</p>
+                        <p>contato@ecoalerta.com.br</p>
                         <p>Resposta em até 24h</p>
                     </div>
                     
                     <div class="info-card">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Endereço</h3>
-                        <p>Av. Professor Lineu Prestes, 2242</p>
-                        <p>Butantã, São Paulo - SP</p>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                        <p>Av. Lins de Vasconcelos, 1222 - Aclimação, São Paulo - SP, 01538-001</p>
+                        
+                    </div>               
                 </div>
                 
                 <div class="contact-form">
@@ -802,8 +798,8 @@
                         <p class="team-rm">RM - 564990</p>
                         <p class="team-class">Turma: 1TDSR</p>
                         <div class="team-social">
-                            <a href="https://github.com/NathanaelV"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/nathanael-c%C3%A2ndido-mattos-vieira-392108129/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/NathanaelV" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/nathanael-c%C3%A2ndido-mattos-vieira-392108129/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -818,8 +814,8 @@
                         <p class="team-rm">RM - 565155</p>
                         <p class="team-class">Turma: 1TDSR</p>
                         <div class="team-social">
-                            <a href="https://github.com/AugustoBJunior"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/augusto-junior-bonomo-32777896/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/AugustoBJunior" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/augusto-junior-bonomo-32777896/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -834,8 +830,8 @@
                         <p class="team-rm">RM - 565162</p>
                         <p class="team-class">Turma: 1TDSR</p>
                         <div class="team-social">
-                            <a href="https://github.com/Rcsilva05"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/rodrigo-carvalho-silva-158373355/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Rcsilva05" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/rodrigo-carvalho-silva-158373355/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -848,7 +844,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="img/logos/logo eco alerta.jpg"  alt="logoecoalerta">
+                    <img src="img/logos/logo eco alerta.jpg" alt="logoecoalerta">
                 </div>
                 
                 <div class="footer-links">
@@ -856,7 +852,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#situacoes">Situações</a></li>
-                        <li><a href="#tempo-real">Tempo Real</a></li>
+                        <li><a href="#Monitoramento-em-Tempo-Real">Tempo Real</a></li>
                         <li><a href="#tecnologia">Tecnologia</a></li>
                         <li><a href="#doacoes">Doações</a></li>
                     </ul>
@@ -865,9 +861,9 @@
                 <div class="footer-contact">
                     <h3>Contato</h3>
                     <ul>
-                        <li><i class="fas fa-phone-alt"></i> 0800 123 4567</li>
-                        <li><i class="fas fa-envelope"></i> contato@spalerta.sp.gov.br</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Prof. Lineu Prestes, 2242</li>
+                        <li><i class="fas fa-phone-alt"></i> 4002-8922</li>
+                        <li><i class="fas fa-envelope"></i> contato@ecoalerta.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Lins de Vasconcelos, 1222 - Aclimação, São Paulo - SP, 01538-001</li>
                     </ul>
                 </div>
                 
@@ -886,12 +882,6 @@
                     <p>&copy; 2025 SP Alerta. Todos os direitos reservados.</p>
                 </div>
                 
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
             </div>
         </div>
     </footer>
@@ -900,7 +890,28 @@
     <button id="backToTop" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
+<div>
+</div>
+   
 
-    <script src="script.js"></script>
+<script src="script.js" defer></script>
+<!--watson-->
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "4f46e5f4-5d73-4cb1-a676-caf5b66ac5b2",
+    region: "au-syd",
+    serviceInstanceID: "d04e16e8-8124-4aac-951f-4885a1b5f35c",
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+          (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+          "/WatsonAssistantChatEntry.js";
+    t.defer = true; 
+    document.head.appendChild(t);
+  });
+</script>
+
 </body>
 </html>

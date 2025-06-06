@@ -1,4 +1,3 @@
-/* style.css */
 :root {
     --primary-color: #1E3A8A;
     --primary-dark: #172554;
@@ -168,8 +167,6 @@ h2 {
     transform: translateY(-2px);
 }
 
-
-/* Botão secundário (vermelho - Socorro) */
 .btn-secondary {
     padding: 12px 25px;
     border-radius: 5px;
@@ -181,7 +178,7 @@ h2 {
     display: block;
     background-color: red;
     color: white !important;
-    margin: 0 auto; /* ← centraliza horizontalmente */
+    margin: 0 auto;
 }
 
 .btn-secondary:hover {
@@ -189,8 +186,6 @@ h2 {
     transform: translateY(-2px);
 }
 
-
-/* Botão terciário */
 .btn-terceary {
     padding: 12px 25px;
     border-radius: 5px;
@@ -207,7 +202,6 @@ h2 {
     background-color: blue;
     transform: translateY(-2px);
 }
-
 
 .hero-stats {
     display: flex;
@@ -437,265 +431,230 @@ h2 {
     filter: grayscale(0) brightness(1);
 }
 
-/* Mapa Interativo */
-.map-section {
+/* monitoramento*/
+.secao-estetica {
     padding: 80px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.map-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
-    align-items: center;
+.titulo-destaque {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.subtitulo {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
 }
 
-.filter-group label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+.conteudo-mapa {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
 }
 
-.filter-group select {
-    padding: 8px 12px;
-    background-color: var(--input-bg);
-    border: none;
-    border-radius: 5px;
-    color: var(--text-color);
+.mapa-interativo {
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-.btn-voice {
-    padding: 8px 15px;
-    background-color: var(--primary-light);
-    color: var(--text-color);
-    border: none;
-    border-radius: 5px;
+.img-mapa {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+    transition: transform 0.5s;
+}
+
+.mapa-interativo:hover .img-mapa {
+    transform: scale(1.03);
+}
+
+/* areas destacadas*/
+.area-risco,
+.area-monitorada,
+.area-segura {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transform: translate(-50%, -50%);
     transition: all 0.3s;
 }
 
-.btn-voice:hover {
-    background-color: var(--primary-color);
+.area-risco {
+    background: rgba(220, 38, 38, 0.3);
+    border: 2px solid rgba(220, 38, 38, 0.7);
 }
 
-.interactive-map {
-    height: 500px;
-    width: 100%;
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    overflow: hidden;
+.area-monitorada {
+    background: rgba(234, 179, 8, 0.3);
+    border: 2px solid rgba(234, 179, 8, 0.7);
 }
 
-.map-legend {
+.area-segura {
+    background: rgba(34, 197, 94, 0.3);
+    border: 2px solid rgba(34, 197, 94, 0.7);
+}
+
+.area-risco:hover,
+.area-monitorada:hover,
+.area-segura:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.botoes-mapa {
     position: absolute;
-    top: 20px;         /* distância do topo */
-    left: 20px;        /* distância da esquerda */
-    background-color: rgba(255, 255, 255, 0.9); /* fundo branco com transparência */
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    z-index: 999;
-}
-
-.map-legend .legend-item {
+    bottom: 20px;
+    left: 0;
+    right: 0;
     display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.map-legend .legend-color {
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
-}
-
-.map-legend .legend-color.health {
-    background-color: #EF4444;
-}
-
-.map-legend .legend-color.safety {
-    background-color: #3B82F6;
-}
-
-.map-legend .legend-color.shelter {
-    background-color: #10B981;
-}
-
-.map-legend .legend-color.food {
-    background-color: #F59E0B;
-}
-
-/* Seção de Monitoramento em Tempo Real */
-.realtime-section {
-    padding: 80px 0;
-    background-color: var(--primary-dark);
-}
-
-.realtime-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
-
-.realtime-map {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    padding: 20px;
-    
-}
-
-.map-container {
-    position: relative;
-    height: 500px;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    background: #1F2937;
-}
-
-.map-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.map-legend .map-legend {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(31, 41, 55, 0.9);
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-width: 200px;
-    height: auto;
+    gap: 15px;
     z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-
-.legend-item {
+.botao-mapa {
+    padding: 12px 20px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-size: 0.9rem;
 }
 
-.legend-color {
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
+.botao-risco:hover {
+    background: rgba(220, 38, 38, 0.8);
 }
 
-.legend-color.danger {
-    background-color: var(--danger-color);
+.botao-monitorar:hover {
+    background: rgba(234, 179, 8, 0.8);
 }
 
-.legend-color.warning {
-    background-color: var(--warning-color);
+.botao-seguro:hover {
+    background: rgba(34, 197, 94, 0.8);
 }
 
-.legend-color.safe {
-    background-color: var(--success-color);
+.botao-mapa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.realtime-data {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    padding: 20px;
+.botao-mapa i {
+    font-size: 1rem;
 }
 
-.realtime-data h3 {
-    margin-bottom: 20px;
-    font-size: 1.3rem;
-}
-
-.data-grid {
+.painel-dados {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
-.data-card {
-    background-color: var(--primary-dark);
-    border-radius: 8px;
-    padding: 15px;
+.dado-item {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
 }
 
-.data-card i {
+.dado-item.alerta {
+    background: rgba(220, 38, 38, 0.2);
+}
+
+.dado-item:hover {
+    background: rgba(30, 41, 59, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dado-item i {
+    font-size: 1.8rem;
+    color: #38bdf8;
+}
+
+.dado-item.alerta i {
+    color: #f87171;
+}
+
+.dado-valor {
     font-size: 1.5rem;
-    color: var(--primary-light);
-}
-
-.data-value {
-    font-size: 1.3rem;
     font-weight: 700;
     display: block;
 }
 
-.data-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-.sensor-info {
-    margin-bottom: 20px;
-}
-
-.sensor-info h4 {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-.progress-bar {
-    height: 8px;
-    background-color: var(--primary-light);
-    border-radius: 4px;
-    margin-bottom: 5px;
-}
-
-.sensor-info p {
+.dado-item small {
     font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-top: 10px;
+    color: #94a3b8;
+    font-weight: 400;
 }
 
-.btn-sensor {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary-light);
-    color: var(--text-color);
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* estilizado */
+.alerta-estetico {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 41, 59, 0.95);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
+    opacity: 0;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-sensor:hover {
-    background-color: var(--primary-color);
+.alerta-estetico.visible {
+    opacity: 1;
+    bottom: 40px;
 }
 
+.alerta-estetico i {
+    color: #4ade80;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .painel-dados {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .mapa-interativo {
+        height: 400px;
+    }
+}
 /* Seção de Emergência */
 .emergency-section {
     padding: 80px 0;
@@ -1344,6 +1303,92 @@ h2 {
     margin: 0 auto;
 }
 
+.donation-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background-color: rgba(74, 144, 226, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.donation-modal h3 {
+    margin-bottom: 15px;
+    color: var(--primary-light);
+}
+
+.donation-modal p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.btn-modal {
+    padding: 12px 30px;
+    background-color: var(--primary-light);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-modal:hover {
+    background-color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
 /* Seção FAQ */
 .faq-section {
     padding: 80px 0;
@@ -1623,14 +1668,12 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    
 }
 
 .footer-logo img {
-   height: 250px;
-   width: 250px;
-    border-radius: 150%
-    
+    height: 250px;
+    width: 250px;
+    border-radius: 150%;
 }
 
 .footer-links h3, 
@@ -1751,8 +1794,9 @@ h2 {
 /* Botão Voltar ao Topo */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 100px; 
+    right: 33px;
+    left: auto;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1767,7 +1811,7 @@ h2 {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
-    z-index: 999;
+    z-index: 9999;
 }
 
 .back-to-top.active {
@@ -1781,18 +1825,67 @@ h2 {
 }
 
 /* Responsividade */
-@media (max-width: 992px) {
-    .donation-impact,
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 120px 0 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        min-width: 150px;
+        padding: 15px 20px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .alert-grid, 
+    .data-grid, 
+    .support-grid, 
+    .donation-cards,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-buttons, 
+    .donation-tabs {
+        flex-direction: column;
+    }
+    
+    .impact-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+    
     .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .donation-impact {
         grid-template-columns: 1fr;
     }
     
     .impact-image {
         order: -1;
     }
-}
-
-@media (max-width: 768px) {
+    
     .nav-links {
         position: fixed;
         top: 122px;
@@ -1814,71 +1907,67 @@ h2 {
     .hamburger {
         display: block;
     }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .tech-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .tech-features {
-        justify-content: center;
-    }
-
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-    
-    .realtime-content {
-        grid-template-columns: 1fr;
-    }
 }
 
-@media (max-width: 600px) {
-    .hero {
-        padding: 120px 0 60px;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .stat-item {
-        min-width: 150px;
-        padding: 15px 20px;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem;
-    }
-    
+
+@media (min-width: 600px) {
     .alert-grid, 
-    .situations-grid, 
     .data-grid, 
     .support-grid, 
     .donation-cards,
     .team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tab-buttons, 
-    .donation-tabs {
-        flex-direction: column;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     
     .impact-stats {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
     }
 }
+
+
+@media (min-width: 768px) {
+    .realtime-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .tech-card {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .tech-features {
+        justify-content: flex-start;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .donation-impact,
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .impact-image {
+        order: 0;
+    }
+}
+
+
+@media (min-width: 1300px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+}
+
