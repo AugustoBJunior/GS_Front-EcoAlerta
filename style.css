@@ -150,22 +150,6 @@ h2 {
     margin-bottom: 50px;
 }
 
-.btn-primary {
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s;
-    display: inline-block;
-    background-color: var(--primary-light);
-    color: var(--text-color);
-    margin: 0 auto;
-}
-
-.btn-primary:hover {
-    background-color: #2563EB;
-    transform: translateY(-2px);
-}
 
 .btn-secondary {
     padding: 12px 25px;
@@ -186,22 +170,6 @@ h2 {
     transform: translateY(-2px);
 }
 
-.btn-terceary {
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s;
-    display: inline-block;
-    background-color: var(--primary-light);
-    color: var(--text-color);
-    margin: 0 auto;
-}
-
-.btn-terceary:hover {
-    background-color: blue;
-    transform: translateY(-2px);
-}
 
 .hero-stats {
     display: flex;
