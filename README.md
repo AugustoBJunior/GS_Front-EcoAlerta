@@ -53,7 +53,7 @@ Augusto Bonomo Junior - RM565155            <br>
 Nathanael Cândido Mattos Vieira - RM564990  <br>
 Rodrigo Carvalho Silva - RM565162           <br>
 
-Endereço Repositório do Projeto no GITHUB: https://github.com/NathanaelV/FIAP-Challenge-Front-end 
+Endereço Repositório do Projeto no GITHUB: https://github.com/AugustoBJunior/GS_Front-EcoAlerta
 
 ---
 ---
