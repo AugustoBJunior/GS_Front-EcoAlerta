@@ -1,10 +1,62 @@
 # Eco Alerta Tecnologia
 
-## Integrantes
-- Augusto Bonomo Junior - RM565155
-- Nathanael Cândido Mattos Vieira - RM564990
-- Rodrigo Carvalho Silva - RM565162
+# Projeto Challenge
 
+**Objetivo do Projeto:** <br>
+Somos uma plataforma digital voltada para o monitoramento em tempo real e a <br>
+resposta rápida a desastres naturais em São Paulo e região do Grande ABCD. Nossa <br> 
+solução integra informações críticas sobre eventos climáticos extremos, alagamentos e <br> 
+outras catástrofes, permitindo à população e autoridades acesso rápido e centralizado <br>
+a dados confiáveis. 
+
+## Estrutura de pastas e arquivos
+
+vitalink/                       <br>
+├── index.html $\quad$ &nbsp;           # Página principal do site                <br>
+├── script.js  $\quad$ $\quad$ &nbsp;   # Arquivo JavaScript com interações       <br>
+├── style.css  $\quad$ $\quad$          # Estilos da página                       <br>
+├── .gitignore  $\quad$ $\quad$          # arquivos para git ignorar                       <br>
+├── README.md  $\quad$ $\quad$          # Instruções                       <br>
+├── img/ $\quad$ $\quad$ $\quad$ &nbsp; # Pasta com imagens usadas no projeto     <br>
+│ $\quad$ ├── augusto.jpg                                   <br>
+│ $\quad$ ├── donate.jpg                                   <br>
+│ $\quad$ ├── mapa sao paulo.jpg                                   <br>
+│ $\quad$ ├── nathan.PNG                                    <br>
+│ $\quad$ ├── rodrigo.PNG                                   <br>
+│ $\quad$ ├── vitimas sul.webp                              <br>
+│ $\quad$ └── logos/                # Subpasta com logos    <br>
+│ $\quad$ $\quad$ ├── Defesa-Civil-logo-portal.jpg      <br>
+│ $\quad$ $\quad$ ├── google maps.jpg      <br>
+│ $\quad$ $\quad$ ├── logo eco alerta.png    <br>
+│ $\quad$ $\quad$ ├── prefeitura.png    <br>
+│ $\quad$ $\quad$ └── zl mapa.png    <br>
+├── readme-img/ $\quad$ $\quad$ $\quad$ &nbsp; # Pasta com imagens para README     <br>
+│ $\quad$ ├── image-1.png                                   <br>
+│ $\quad$ ├── image-2.png                                   <br>
+│ $\quad$ ├── image-3.png                                   <br>
+│ $\quad$ ├── image-4.png                                   <br>
+│ $\quad$ ├── image-5.png                                   <br>
+│ $\quad$ ├── image-6.png                                   <br>
+│ $\quad$ ├── image.png                                   <br>
+
+
+## Tecnologia Utilizada: 
+- **HTML5** – Marcação da estrutura das páginas
+- **CSS3** – Estilização do layout e responsividade
+- **JavaScript (Vanilla JS)** – Lógica de interação da página
+- **Editor de código:** VS Code (opcional, se quiser informar)
+- **Imagens e assets estáticos** – PNG, JPG usados para identidade visual
+
+
+## Integrantes do Grupo
+Augusto Bonomo Junior - RM565155            <br>
+Nathanael Cândido Mattos Vieira - RM564990  <br>
+Rodrigo Carvalho Silva - RM565162           <br>
+
+Endereço Repositório do Projeto no GITHUB: https://github.com/NathanaelV/FIAP-Challenge-Front-end 
+
+---
+---
 
 ## Recomendações de atualizações:
 
